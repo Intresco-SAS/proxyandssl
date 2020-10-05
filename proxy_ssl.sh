@@ -1,5 +1,5 @@
-dom="produccion.intresco.co"
-oIP="3.15.213.3"
+dom="fenix.intresco.co"
+oIP="3.131.83.148"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
