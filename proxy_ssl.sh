@@ -1,4 +1,4 @@
-dom="trasegar.intresco.co"
+dom="temporal.intresco.co"
 oIP="18.217.60.5"
 apt-get install nginx -y
 cd
