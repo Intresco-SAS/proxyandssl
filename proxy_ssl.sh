@@ -1,5 +1,5 @@
-dom="temporal.intresco.co"
-oIP="18.217.60.5"
+dom="tecnuraba.intresco.co"
+oIP="3.21.114.117"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
