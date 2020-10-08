@@ -1,5 +1,5 @@
-dom="tecnocortes.intresco.co"
-oIP="3.19.72.131"
+dom="guillotina.intresco.co"
+oIP="18.216.40.16"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
