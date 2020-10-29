@@ -1,5 +1,5 @@
-dom="coolsystem.intresco.co"
-oIP="3.16.24.84"
+dom="dryrefor.intresco.co"
+oIP="52.15.165.59"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
