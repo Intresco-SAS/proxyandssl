@@ -1,5 +1,5 @@
-dom="litocolor.intresco.co"
-oIP="3.14.79.126"
+dom="dsa.sda.co"
+oIP="dsa"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
