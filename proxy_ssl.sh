@@ -1,5 +1,5 @@
-dom="ghjkl.fghjk.co"
-oIP="fghjkl"
+dom="sdfgh.fdgfhgjh.co"
+oIP="gfhgjhkjlk"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
