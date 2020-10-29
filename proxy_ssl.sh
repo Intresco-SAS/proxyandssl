@@ -1,4 +1,4 @@
-dom="dsa.sda.xco"
+dom="dsa.dsad.co"
 oIP="dsa"
 apt-get install nginx -y
 cd
