@@ -1,5 +1,5 @@
-dom="kapitan.intresco.co"
-oIP="18.220.46.190"
+dom="Constru hidro sanitarias.construhidrosanitarias.intresco.co.co"
+oIP="18.220.246.185"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
