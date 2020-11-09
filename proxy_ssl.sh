@@ -1,4 +1,4 @@
-dom="Constru hidro sanitarias.construhidrosanitarias.intresco.co.co"
+dom="construhidrosanitarias.intresco.co"
 oIP="18.220.246.185"
 apt-get install nginx -y
 cd
