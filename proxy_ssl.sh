@@ -1,5 +1,5 @@
-dom="construhidrosanitarias.intresco.co"
-oIP="18.220.246.185"
+dom="klahus.intresco.co"
+oIP="18.188.69.205"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
