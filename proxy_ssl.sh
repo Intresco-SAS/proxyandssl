@@ -1,5 +1,5 @@
-dom="electroventiladores.intresco.co"
-oIP="18.191.194.218"
+dom="solfruits.intresco.co"
+oIP="18.223.184.43"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
