@@ -1,5 +1,5 @@
-dom="klahus.intresco.co"
-oIP="18.188.69.205"
+dom="electroventiladores.intresco.co"
+oIP="18.191.194.218"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
