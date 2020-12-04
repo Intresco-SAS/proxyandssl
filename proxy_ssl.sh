@@ -1,5 +1,5 @@
-dom="app.solfruits.co"
-oIP="18.188.213.86"
+dom="amattist.intresco.co.co"
+oIP="3.128.189.228"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
