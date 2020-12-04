@@ -1,4 +1,4 @@
-dom="amattista.intresco.co.co"
+dom="amattist.intresco.co.co"
 oIP="3.138.204.66"
 apt-get install nginx -y
 cd
