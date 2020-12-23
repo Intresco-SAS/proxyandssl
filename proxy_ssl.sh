@@ -61,6 +61,6 @@ apt-get install software-properties-common
 add-apt-repository universe
 add-apt-repository ppa:certbot/certbot
 apt-get install -y python-certbot-nginx
-certbot --nginx
+certbot --nginx -d $dom -d www.$dom
 cd /etc/nginx/
 sed -i '12iclient_max_body_size 100M;' nginx.conf
