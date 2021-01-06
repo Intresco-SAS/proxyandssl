@@ -1,5 +1,5 @@
-dom="tiendagretha.com"
-oIP="3.138.60.165"
+dom="pandequesosantarosano.intresco.co"
+oIP="18.191.253.10"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
