@@ -1,5 +1,5 @@
-dom="puntoaparte.intresco.co"
-oIP="3.138.126.141"
+dom="agroshell.intresco.co"
+oIP="3.137.198.15"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
