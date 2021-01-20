@@ -1,5 +1,5 @@
-dom="agroshell.intresco.co"
-oIP="3.137.198.15"
+dom="cimd.intresco.co"
+oIP="18.220.85.176"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
@@ -61,6 +61,6 @@ apt-get install software-properties-common
 add-apt-repository universe
 add-apt-repository ppa:certbot/certbot
 apt-get install -y python-certbot-nginx
-certbot --nginx -d $dom -d www.$dom
+certbot --nginx
 cd /etc/nginx/
 sed -i '12iclient_max_body_size 100M;' nginx.conf
