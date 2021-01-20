@@ -1,5 +1,5 @@
-dom="cimd.intresco.co"
-oIP="18.220.85.176"
+dom="chilacos.intresco.co"
+oIP="18.221.220.125"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
