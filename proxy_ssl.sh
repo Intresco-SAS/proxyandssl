@@ -1,5 +1,5 @@
-dom="chilacos.intresco.co"
-oIP="18.221.220.125"
+dom="parafin.intresco.co"
+oIP="3.139.237.42"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
