@@ -1,5 +1,5 @@
-dom="emir.intresco.co"
-oIP="3.136.160.21"
+dom="pruebas.intresco.co"
+oIP="18.219.95.118"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
