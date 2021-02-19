@@ -1,5 +1,5 @@
-dom="litocolor.intresco.co"
-oIP="3.15.155.167"
+dom="masimpresion.intresco.co"
+oIP="18.221.162.53"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
