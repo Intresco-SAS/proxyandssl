@@ -1,5 +1,5 @@
-dom="luna.intresco.co"
-oIP="3.16.28.184"
+dom="litocolor.intresco.co"
+oIP="3.15.155.167"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
