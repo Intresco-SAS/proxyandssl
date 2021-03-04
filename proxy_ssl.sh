@@ -1,5 +1,5 @@
-dom="masimpresion.intresco.co"
-oIP="18.221.162.53"
+dom="pandequeso.intresco.co"
+oIP="3.141.14.69"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
