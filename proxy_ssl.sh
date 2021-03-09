@@ -1,5 +1,5 @@
-dom="pandequeso.intresco.co"
-oIP="3.141.14.69"
+dom="parafin.intresco.co"
+oIP="52.14.187.119"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
