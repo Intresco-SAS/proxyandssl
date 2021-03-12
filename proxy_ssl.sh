@@ -6,6 +6,14 @@ git clone https://github.com/agavariat/dominio.git
 mv dominio/dominio /etc/nginx/sites-available/$dom
 cd /etc/nginx/sites-available
 cat <<EOF > $dom
+upstream odoosrv {
+	server 127.0.0.1:8069 weight=1 fail_timeout=0;
+}
+ 
+upstream odoolong {
+	server 127.0.0.1:8072 weight=1 fail_timeout=0;
+}
+
 server {
   server_name $dom www.$dom $oIP;
   listen 80;
