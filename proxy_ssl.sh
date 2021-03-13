@@ -106,4 +106,11 @@ add-apt-repository ppa:certbot/certbot
 apt-get install -y python-certbot-nginx
 certbot --nginx
 cd /etc/nginx/
-sed -i '12iclient_max_body_size 1000M;' nginx.conf
+sed -i '12iclient_max_body_size 1000M;
+	server {
+                listen 80;
+
+        location / {
+                proxy_pass http://odoolong;
+                   }
+                }' nginx.conf
