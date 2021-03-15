@@ -15,8 +15,8 @@ upstream odoolong {
 }
 
 server {
-  server_name $dom www.$dom $oIP;
-    access_log /var/log/nginx/testing-access.log;
+        server_name $dom www.$dom $oIP;
+        access_log /var/log/nginx/testing-access.log;
         error_log /var/log/nginx/testing-error.log;
         proxy_buffers 16 64k;
         proxy_buffer_size 128k;
@@ -48,7 +48,6 @@ server {
                    application/xml
                    application/xml+rss;
 
-
         location / {
         proxy_connect_timeout 3600;
         proxy_read_timeout 3600;
@@ -77,7 +76,6 @@ server {
         proxy_read_timeout 3600;
         proxy_send_timeout 3600;
         send_timeout 3600;
-
        }
 }
 
