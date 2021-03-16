@@ -51,13 +51,11 @@ server {
         proxy_send_timeout 3600;
         send_timeout 3600;
         proxy_pass http://odoosrv;
-
         proxy_next_upstream error timeout invalid_header http_500 http_502 http_503;
         proxy_redirect off;
        }
         location /longpolling {
 	proxy_pass http://odoolong;
-
 	proxy_next_upstream error timeout invalid_header http_500 http_502 http_503;
 	proxy_redirect off;
         proxy_connect_timeout 3600;
@@ -74,7 +72,7 @@ sed -i '46i\
         proxy_set_header X-Real-IP $remote_addr;\
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\
         proxy_set_header X-Forwarded-Proto $scheme;' $dom
-sed -i '51\
+sed -i '56\
 	proxy_set_header Host $host;
 	proxy_set_header X-Forwarded-Host $host;
 	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
