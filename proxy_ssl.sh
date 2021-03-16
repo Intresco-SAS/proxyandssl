@@ -72,6 +72,7 @@ sed -i '46i\
         proxy_set_header X-Real-IP $remote_addr;\
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\
         proxy_set_header X-Forwarded-Proto $scheme;' $dom
+cd /etc/nginx/sites-available	
 sed -i '56\
 	proxy_set_header Host $host;
 	proxy_set_header X-Forwarded-Host $host;
@@ -102,7 +103,7 @@ ufw allow 8069
 ufw allow 'Nginx Full'
 ufw enable
 service odoo restart
-service nginx restart
+systemctl restart nginx
 apt-get update
 python3 -m pip install "urllib3<1.26"
 python3 -m pip install "chardet<3.0"
