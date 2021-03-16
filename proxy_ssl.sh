@@ -1,5 +1,9 @@
 dom="support.intresco.co"
 oIP="3.131.13.157"
+host="$host"
+proxy_add_x_forwarded_for="$proxy_add_x_forwarded_for"
+scheme="$scheme"
+remote_addr="$remote_addr"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
