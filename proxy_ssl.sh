@@ -110,4 +110,4 @@ apt-get install software-properties-common
 add-apt-repository universe
 add-apt-repository ppa:certbot/certbot
 apt-get install certbot
-certbot --nginx -d $dom -d www.$dom	
+certbot --nginx -d $dom -d www.$dom
