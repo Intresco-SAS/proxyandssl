@@ -1,9 +1,5 @@
 dom="labufalera.intresco.co"
 oIP="13.58.74.131"
-host="$host"
-proxy_add_x_forwarded_for="$proxy_add_x_forwarded_for"
-scheme="$scheme"
-remote_addr="$remote_addr"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
@@ -49,29 +45,19 @@ server {
                    application/x-javascript
                    application/xml
                    application/xml+rss;
-
         location / {
         proxy_connect_timeout 3600;
         proxy_read_timeout 3600;
         proxy_send_timeout 3600;
         send_timeout 3600;
         proxy_pass http://odoosrv;
-        proxy_set_header Host $host:$server_port;
-        proxy_set_header X-Forwarded-Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
+        
         proxy_next_upstream error timeout invalid_header http_500 http_502 http_503;
         proxy_redirect off;
        }
-
         location /longpolling {
 	proxy_pass http://odoolong;
-	proxy_set_header Host $host;
-	proxy_set_header X-Forwarded-Host $host;
-	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-	proxy_set_header X-Forwarded-Proto $scheme;
-	proxy_set_header X-Real-IP $remote_addr;
+	
 	proxy_next_upstream error timeout invalid_header http_500 http_502 http_503;
 	proxy_redirect off;
         proxy_connect_timeout 3600;
@@ -80,10 +66,30 @@ server {
         send_timeout 3600;
        }
 }
-
 EOF
-
+cd /etc/nginx/sites-available
+sed -i '46i\
+	proxy_set_header Host $host:$server_port;\
+        proxy_set_header X-Forwarded-Host $host;\
+        proxy_set_header X-Real-IP $remote_addr;\
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\
+        proxy_set_header X-Forwarded-Proto $scheme;' $dom
+sed -i '52i\	
+	proxy_set_header Host $host;
+	proxy_set_header X-Forwarded-Host $host;
+	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	proxy_set_header X-Forwarded-Proto $scheme;
+	proxy_set_header X-Real-IP $remote_addr;' $dom
 ln -s /etc/nginx/sites-available/$dom /etc/nginx/sites-enabled/$dom
+cd /etc/nginx/
+sed -i '12i\
+	client_max_body_size 1000M;\
+	server {\
+                listen 80;\
+        location / {\
+                proxy_pass http://odoolong;\
+                   }\
+                }' nginx.conf
 cd /etc/odoo
 echo "proxy_mode = True" >> odoo.conf
 echo "xmlrpc_interface = 127.0.0.1" >> odoo.conf
@@ -104,12 +110,4 @@ apt-get install software-properties-common
 add-apt-repository universe
 add-apt-repository ppa:certbot/certbot
 apt-get install certbot
-certbot --nginx -d $dom -d www.$dom
-cd /etc/nginx/
-sed -i '12iclient_max_body_size 1000M;\
-	server {\
-                listen 80;\
-        location / {\
-                proxy_pass http://odoolong;\
-                   }\
-                }' nginx.conf
+certbot --nginx -d $dom -d www.$dom		
