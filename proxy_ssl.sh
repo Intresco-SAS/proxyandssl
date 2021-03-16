@@ -108,11 +108,10 @@ add-apt-repository ppa:certbot/certbot
 apt-get install -y python3-certbot-nginx
 certbot --nginx -d $dom -d www.$dom
 cd /etc/nginx/
-sed -i '12iclient_max_body_size 1000M;
-	server {
-                listen 80;
-
-        location / {
-                proxy_pass http://odoolong;
-                   }
+sed -i '12iclient_max_body_size 1000M;\
+	server {\
+                listen 80;\
+        location / {\
+                proxy_pass http://odoolong;\
+                   }\
                 }' nginx.conf
