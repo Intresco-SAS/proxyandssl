@@ -1,5 +1,5 @@
 dom="support.intresco.co"
-oIP="3.140.199.40"
+oIP="3.131.13.157"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
