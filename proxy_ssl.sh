@@ -1,5 +1,5 @@
 dom="support.intresco.co"
-oIP="3.131.13.157"
+oIP="3.140.199.40"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
@@ -102,7 +102,7 @@ apt-get install software-properties-common
 add-apt-repository universe
 add-apt-repository ppa:certbot/certbot
 apt-get install -y python3-certbot-nginx
-certbot --nginx
+certbot --nginx -d $dom -d www.$dom
 cd /etc/nginx/
 sed -i '12iclient_max_body_size 1000M;
 	server {
