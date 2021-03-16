@@ -103,7 +103,7 @@ apt-get update
 apt-get install software-properties-common
 add-apt-repository universe
 add-apt-repository ppa:certbot/certbot
-apt-get install -y python3-certbot-nginx
+apt-get install certbot
 certbot --nginx -d $dom -d www.$dom
 cd /etc/nginx/
 sed -i '12iclient_max_body_size 1000M;\
