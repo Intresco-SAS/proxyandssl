@@ -1,5 +1,5 @@
-dom="support.intresco.co"
-oIP="3.131.13.157"
+dom="labufalera.intresco.co"
+oIP="13.58.74.131"
 host="$host"
 proxy_add_x_forwarded_for="$proxy_add_x_forwarded_for"
 scheme="$scheme"
