@@ -13,11 +13,9 @@ cat <<EOF > $dom
 upstream odoosrv {
 	server 127.0.0.1:8069 weight=1 fail_timeout=0;
 }
- 
-upstream odoolong {
+ upstream odoolong {
 	server 127.0.0.1:8072 weight=1 fail_timeout=0;
 }
-
 server {
         server_name $dom www.$dom $oIP;
         access_log /var/log/nginx/testing-access.log;
