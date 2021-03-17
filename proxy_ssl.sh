@@ -1,5 +1,5 @@
-dom="labufalera.intresco.co"
-oIP="13.58.74.131"
+dom="iragorri.intresco.co"
+oIP="3.22.235.86"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
