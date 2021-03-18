@@ -105,8 +105,6 @@ ufw enable
 service odoo restart
 systemctl restart nginx
 apt-get update
-python3 -m pip install "urllib3<1.26"
-python3 -m pip install "chardet<3.0"
 apt-get install software-properties-common
 add-apt-repository universe
 add-apt-repository ppa:certbot/certbot
