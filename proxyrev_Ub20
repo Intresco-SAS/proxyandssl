@@ -1,13 +1,19 @@
+dom="paraisosol.intresco.co"
+oIP="18.221.255.7"
+apt-get install nginx -y
+cd
+git clone https://github.com/agavariat/dominio.git
+mv dominio/dominio /etc/nginx/sites-available/$dom
+cd /etc/nginx/sites-available
+cat <<EOF > $dom
 upstream odoosrv {
 	server 127.0.0.1:8069 weight=1 fail_timeout=0;
 }
- 
-upstream odoolong {
+ upstream odoolong {
 	server 127.0.0.1:8072 weight=1 fail_timeout=0;
 }
-
 server {
-server_name emir.intresco.co www.emir.intresco.co 52.14.161.124;
+        server_name $dom www.$dom $oIP;
         access_log /var/log/nginx/testing-access.log;
         error_log /var/log/nginx/testing-error.log;
         proxy_buffers 16 64k;
@@ -39,46 +45,70 @@ server_name emir.intresco.co www.emir.intresco.co 52.14.161.124;
                    application/x-javascript
                    application/xml
                    application/xml+rss;
-
-#location ~^/web/database {
-#rewrite ^/web/database(.*) http:// permanent;
-#}
-#location ~* ^/([^/]+/static/|web/(css|js)/|web/image/|web/content/|website/image/) {
-#proxy_cache_valid 200 60m;
-#proxy_buffering on;
-#expires 30d;
-#proxy_pass http://odoosrv;
-#}
-
-
         location / {
         proxy_connect_timeout 3600;
         proxy_read_timeout 3600;
         proxy_send_timeout 3600;
         send_timeout 3600;
         proxy_pass http://odoosrv;
-        proxy_set_header Host $host:$server_port;
-        proxy_set_header X-Forwarded-Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
         proxy_next_upstream error timeout invalid_header http_500 http_502 http_503;
         proxy_redirect off;
        }
-
         location /longpolling {
 	proxy_pass http://odoolong;
-	proxy_set_header Host $host;
-	proxy_set_header X-Forwarded-Host $host;
-	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-	proxy_set_header X-Forwarded-Proto $scheme;
-	proxy_set_header X-Real-IP $remote_addr;
 	proxy_next_upstream error timeout invalid_header http_500 http_502 http_503;
 	proxy_redirect off;
         proxy_connect_timeout 3600;
         proxy_read_timeout 3600;
         proxy_send_timeout 3600;
         send_timeout 3600;
-
        }
 }
+EOF
+cd /etc/nginx/sites-available
+sed -i '46i\
+	proxy_set_header Host $host:$server_port;\
+        proxy_set_header X-Forwarded-Host $host;\
+        proxy_set_header X-Real-IP $remote_addr;\
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\
+        proxy_set_header X-Forwarded-Proto $scheme;' $dom
+cd /etc/nginx/sites-available
+sed -i '56i\
+	proxy_set_header Host $host;\
+	proxy_set_header X-Forwarded-Host $host;\
+	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\
+	proxy_set_header X-Forwarded-Proto $scheme;\
+	proxy_set_header X-Real-IP $remote_addr;' $dom
+ln -s /etc/nginx/sites-available/$dom /etc/nginx/sites-enabled/$dom
+cd /etc/nginx/
+sed -i '12i\
+	client_max_body_size 1000M;\
+	server {\
+                listen 80;\
+        location / {\
+                proxy_pass http://odoolong;\
+                   }\
+                }' nginx.conf
+cd /etc/odoo
+echo "proxy_mode = True" >> odoo.conf
+echo "xmlrpc_interface = 127.0.0.1" >> odoo.conf
+echo "netrpc_interface = 127.0.0.1" >> odoo.conf
+cd /etc/nginx/sites-enabled
+rm default
+cd /etc/nginx/sites-available
+rm default
+cd
+ufw allow 22
+ufw allow 8069
+ufw allow 'Nginx Full'
+ufw enable
+service odoo restart
+systemctl restart nginx
+apt-get update
+python3 -m pip install "urllib3<1.26"
+python3 -m pip install "chardet<3.0"
+apt-get install software-properties-common
+add-apt-repository universe
+add-apt-repository ppa:certbot/certbot
+apt-get install certbot
+certbot --nginx -d $dom -d www.$dom
