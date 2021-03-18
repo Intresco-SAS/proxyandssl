@@ -110,5 +110,5 @@ python3 -m pip install "chardet<3.0"
 apt-get install software-properties-common
 add-apt-repository universe
 add-apt-repository ppa:certbot/certbot
-apt-get install certbot
+apt-get install certbot python3-certbot-nginx -y
 certbot --nginx -d $dom -d www.$dom
