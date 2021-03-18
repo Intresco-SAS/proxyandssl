@@ -108,5 +108,6 @@ apt-get update
 apt-get install software-properties-common
 add-apt-repository universe
 add-apt-repository ppa:certbot/certbot
-apt-get install certbot python3-certbot-nginx -y
+apt update
+apt install python-certbot-nginx
 certbot --nginx -d $dom -d www.$dom
