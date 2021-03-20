@@ -1,5 +1,5 @@
 dom="paraisosol.intresco.co"
-oIP="18.221.255.7"
+oIP="13.59.229.125"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
