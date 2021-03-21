@@ -58,7 +58,7 @@ dbfilter = .*
 EOF
 chmod 777 odoo.conf
 cd /opt/odoo/nginx/conf
-sed -e '$a\
+sed -i -e '$a\
 upstream $app {\
        server $app:8069;\
 }\
@@ -114,9 +114,8 @@ server_name $dom www.$dom;\
     listen 80;\
     listen [::]:80;\
     return 404;\
-}' $default.conf
-cd ..
-cd ..
+}' default.conf
+cd /opt/odoo/
 touch docker-compose.yml
 cat <<EOF > docker-compose.yml
 version: '3'
