@@ -1,10 +1,9 @@
-dom="dockert.intresco.co"
+dom="dockerw.intresco.co"
 oIP="3.137.163.227"
 pto="8076"
 app="odoo6"
 db="db6"
 vapp="12"
-
 mkdir $dom
 cd /$dom
 mkdir addons
@@ -117,7 +116,6 @@ server_name $dom www.$dom;\
     listen [::]:80;\
     return 404;\
 }' $default.conf
-
 cd ..
 cd ..
 rm docker-compose.yml -y
@@ -155,10 +153,5 @@ volumes:
   $app:
   $db:
 EOF
-
-
-
-
 ufw allow $pto
 docker-compose up
-
