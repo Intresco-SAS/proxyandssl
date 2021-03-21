@@ -9,7 +9,7 @@ chmod 777 -R $dom
 cd $dom
 mkdir addons
 mkdir config
-cd /config
+cd config
 touch odoo.conf
 cat <<EOF > odoo.conf
 [options]
