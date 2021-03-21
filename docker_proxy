@@ -5,7 +5,8 @@ app="odoo6"
 db="db6"
 vapp="12"
 mkdir $dom
-cd /$dom
+chmod 777 -R $dom
+cd $dom
 mkdir addons
 mkdir config
 cd /config
@@ -56,9 +57,7 @@ dbfilter = .*
 #workers = 2
 EOF
 chmod 777 odoo.conf
-cd ..
-cd ..
-cd /nginx/conf
+cd /opt/odoo/nginx/conf
 sed -e '$a\
 upstream $app {\
        server $app:8069;\
@@ -118,7 +117,6 @@ server_name $dom www.$dom;\
 }' $default.conf
 cd ..
 cd ..
-rm docker-compose.yml -y
 touch docker-compose.yml
 cat <<EOF > docker-compose.yml
 version: '3'
@@ -154,4 +152,3 @@ volumes:
   $db:
 EOF
 ufw allow $pto
-docker-compose up
