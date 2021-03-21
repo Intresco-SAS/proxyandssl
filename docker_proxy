@@ -1,0 +1,164 @@
+dom="dockert.intresco.co"
+oIP="3.137.163.227"
+pto="8076"
+app="odoo6"
+db="db6"
+vapp="12"
+
+mkdir $dom
+cd /$dom
+mkdir addons
+mkdir config
+cd /config
+touch odoo.conf
+cat <<EOF > odoo.conf
+[options]
+addons_path = mnt/extra-addons
+data_dir = /var/lib/odoo
+admin_passwd = admin
+#csv_internal_sep = ,
+db_host = $db
+db_password = odoo
+db_port = 5432
+#db_template = template1
+db_user = odoo
+#xmlrpc_interface = 127.0.0.1
+#netrpc_interface = 127.0.0.1
+csv_internal_sep = ,
+#limit_memory_hard = 2147483648
+#limit_memory_soft = 1342177280
+#limit_request = 8192
+#limit_time_cpu = 480
+#limit_time_real = 960
+#max_cron_threads = 2
+#workers = 5
+#longpolling_port = 8072
+list_db = True
+proxy_mode = True
+#xmlrpc = True
+dbfilter = .*
+#dbfilter = ^%h$
+#demo = {}
+#email_from = False
+#http_enable = True
+#http_interface =
+#http_port = 8069
+#import_partial =
+#limit_memory_hard = 2684354560
+#limit_memory_soft = 2147483648
+#limit_request = 8192
+#limit_time_cpu = 120
+#limit_time_real = 240
+#limit_time_real_cron = -1
+#max_cron_threads = 2
+#osv_memory_age_limit = False
+#osv_memory_count_limit = False
+#xmlrpc_port = 8069
+#workers = 2
+EOF
+chmod 777 odoo.conf
+cd ..
+cd ..
+cd /nginx/conf
+sed -e '$a\
+upstream $app {\
+       server $app:8069;\
+}\
+server {\
+listen [::]:443 ssl;\
+listen 443 ssl;\
+server_name $dom www.$dom;\
+location ^~ /.well-known/acme-challenge {\
+             root /var/www/html/;\
+             allow all;\
+}\
+# increase proxy buffer to handle some Odoo web requests\
+proxy_buffers 16 64k;\
+proxy_buffer_size 128k;\
+# Specifies the maximum accepted body size of a client request,\
+# as indicated by the request header Content-Length.\
+client_max_body_size 200m;\
+#ssl\
+ssl_certificate /etc/nginx/ssl/live/$dom/fullchain.pem;\
+ssl_certificate_key /etc/nginx/ssl/live/$dom/privkey.pem;\
+include /etc/nginx/ssl/options-ssl-nginx.conf;\
+ssl_dhparam /etc/nginx/ssl/ssl-dhparams.pem;\
+#\
+location / {\
+proxy_pass http://$app;\
+# force timeouts if the backend dies\
+proxy_connect_timeout 75s;\
+proxy_read_timeout 600s;\
+proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;\
+proxy_redirect off;\
+# set headers\
+proxy_set_header Host $host;\
+proxy_set_header X-Real-IP $remote_addr;\
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\
+}\
+# cache some static data in memory for 60mins.\
+# under heavy load this should relieve stress on the OpenERP web interface a bit.\
+location ~* /web/static/ {\
+proxy_cache_valid 200 60m;\
+proxy_buffering on;\
+expires 864000;\
+proxy_pass http://$app;\
+}\
+}\
+server {\
+    if ($host = www.$dom) {\
+        return 301 https://$host$request_uri;\
+    }\
+    if ($host = $dom) {\
+        return 301 https://$host$request_uri;\
+    }\
+server_name $dom www.$dom;\
+    listen 80;\
+    listen [::]:80;\
+    return 404;\
+}' $default.conf
+
+cd ..
+cd ..
+rm docker-compose.yml -y
+touch docker-compose.yml
+cat <<EOF > docker-compose.yml
+version: '3'
+services:
+  $app:
+    container_name: $app
+    image: odoo:$vapp
+    depends_on:
+      - $db
+    ports:
+      - "$pto:8069"
+    volumes:
+      - $app:/var/lib/odoo
+      - ./$dom/config:/etc/odoo
+      - ./$dom/addons:/mnt/extra-addons
+  $db:
+    container_name: $db
+    image: postgres:10
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+  certbot:
+    container_name: certbot
+    image: certbot/certbot:latest
+    command: certonly --webroot --webroot-path=/var/www/html --email info@intresco.co --agree-tos --no-eff-email -d $dom -d www.$dom
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/data:/var/www/html
+volumes:
+  $app:
+  $db:
+EOF
+
+
+
+
+ufw allow $pto
+docker-compose up
+
