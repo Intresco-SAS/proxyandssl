@@ -431,8 +431,8 @@ services:
       - "8074:8069"
     volumes:
       - odoo-web-data1:/var/lib/odoo
-      - ./dockerw.intresco.co/config:/etc/odoo
-      - ./dockerw.intresco.co/addons:/mnt/extra-addons
+      - ./p1.intresco.co/config:/etc/odoo
+      - ./p1.intresco.co/addons:/mnt/extra-addons
   db1:
     container_name: db1
     image: postgres:10
@@ -450,8 +450,8 @@ services:
       - "8075:8069"
     volumes:
       - odoo-web-data2:/var/lib/odoo
-      - ./dockert.intresco.co/config:/etc/odoo
-      - ./dockert.intresco.co/addons:/mnt/extra-addons
+      - ./p2.intresco.co/config:/etc/odoo
+      - ./p2.intresco.co/addons:/mnt/extra-addons
   db2:
     container_name: db2
     image: postgres:10
@@ -469,8 +469,8 @@ services:
       - "8076:8069"
     volumes:
       - odoo-web-data3:/var/lib/odoo
-      - ./dockers.intresco.co/config:/etc/odoo
-      - ./dockers.intresco.co/addons:/mnt/extra-addons
+      - ./p3.intresco.co/config:/etc/odoo
+      - ./p3.intresco.co/addons:/mnt/extra-addons
   db3:
     container_name: db3
     image: postgres:10
@@ -488,8 +488,8 @@ services:
       - "8077:8069"
     volumes:
       - odoo-web-data4:/var/lib/odoo
-      - ./dockers.intresco.co/config:/etc/odoo
-      - ./dockers.intresco.co/addons:/mnt/extra-addons
+      - ./p4.intresco.co/config:/etc/odoo
+      - ./p4.intresco.co/addons:/mnt/extra-addons
   db4:
     container_name: db4
     image: postgres:10
@@ -507,8 +507,8 @@ services:
       - "8078:8069"
     volumes:
       - odoo-web-data5:/var/lib/odoo
-      - ./dockers.intresco.co/config:/etc/odoo
-      - ./dockers.intresco.co/addons:/mnt/extra-addons
+      - ./p5.intresco.co/config:/etc/odoo
+      - ./p5.intresco.co/addons:/mnt/extra-addons
   db5:
     container_name: db5
     image: postgres:10
