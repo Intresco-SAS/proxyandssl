@@ -4,7 +4,7 @@ mkdir /opt/odoo
 ####carpeta 1#####
 cd /opt/odoo
 mkdir p1.intresco.co
-cd p1.intresco.co 
+cd p1.intresco.co
 mkdir addons
 mkdir config
 cd config
@@ -28,7 +28,7 @@ cd /opt/odoo
 chmod 777 -R p1.intresco.co
 ####carpeta 2#####
 mkdir p2.intresco.co
-cd p2.intresco.co 
+cd p2.intresco.co
 mkdir addons
 mkdir config
 cd config
@@ -52,7 +52,7 @@ cd /opt/odoo
 chmod 777 -R p2.intresco.co
 ###carpeta 3#####
 mkdir p3.intresco.co
-cd p3.intresco.co 
+cd p3.intresco.co
 mkdir addons
 mkdir config
 cd config
@@ -76,7 +76,7 @@ cd /opt/odoo
 chmod 777 -R p3.intresco.co
 ####carpeta 4#####
 mkdir p4.intresco.co
-cd p4.intresco.co 
+cd p4.intresco.co
 mkdir addons
 mkdir config
 cd config
@@ -100,7 +100,7 @@ cd /opt/odoo
 chmod 777 -R p4.intresco.co
 ####carpeta 5#####
 mkdir p5.intresco.co
-cd p5.intresco.co 
+cd p5.intresco.co
 mkdir addons
 mkdir config
 cd config
@@ -531,10 +531,10 @@ certbot:
     container_name: certbot
     image: certbot/certbot:latest
     command: certonly --webroot --webroot-path=/var/www/html --email info@intresco.co --agree-tos --no-eff-email -d p1.intresco.co -d www.p1.intresco.co
-command: certonly --webroot --webroot-path=/var/www/html --email info@intresco.co --agree-tos --no-eff-email -d p2.intresco.co -d www.p2.intresco.co
-command: certonly --webroot --webroot-path=/var/www/html --email info@intresco.co --agree-tos --no-eff-email -d p3.intresco.co -d www.p3.intresco.co
-command: certonly --webroot --webroot-path=/var/www/html --email info@intresco.co --agree-tos --no-eff-email -d p4.intresco.co -d www.p4.intresco.co
-command: certonly --webroot --webroot-path=/var/www/html --email info@intresco.co --agree-tos --no-eff-email -d p5.intresco.co -d www.p5.intresco.co
+    command: certonly --webroot --webroot-path=/var/www/html --email info@intresco.co --agree-tos --no-eff-email -d p2.intresco.co -d www.p2.intresco.co
+    command: certonly --webroot --webroot-path=/var/www/html --email info@intresco.co --agree-tos --no-eff-email -d p3.intresco.co -d www.p3.intresco.co
+    command: certonly --webroot --webroot-path=/var/www/html --email info@intresco.co --agree-tos --no-eff-email -d p4.intresco.co -d www.p4.intresco.co
+    command: certonly --webroot --webroot-path=/var/www/html --email info@intresco.co --agree-tos --no-eff-email -d p5.intresco.co -d www.p5.intresco.co
     volumes:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/data:/var/www/html
