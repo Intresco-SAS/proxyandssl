@@ -126,6 +126,7 @@ mkdir nginx
 chmod 777 nginx
 cd nginx
 mkdir conf
+cd conf
 touch default.conf
 cat <<EOF > default.conf
 ############aplicacion_1#######################################
@@ -551,6 +552,7 @@ cd cerbot
 mkdir conf
 mkdir data
 cd conf
+mkdir live
 touch options-ssl-nginx.conf
 cat <<EOF > options-ssl-nginx.conf
 ssl_session_cache shared:le_nginx_SSL:10m;
