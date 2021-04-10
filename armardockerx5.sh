@@ -134,8 +134,8 @@ upstream odoo1 {
        server odoo1:8069;
 }
 server {
-listen [::]:443 ssl;
-listen 443 ssl;
+listen [::]:80;
+listen 80;
 server_name p1.intresco.co www.p1.intresco.co;
 location ^~ /.well-known/acme-challenge {
              root /var/www/html/;
@@ -147,12 +147,6 @@ proxy_buffer_size 128k;
 # Specifies the maximum accepted body size of a client request,
 # as indicated by the request header Content-Length.
 client_max_body_size 200m;
-#ssl
-ssl_certificate /etc/nginx/ssl/live/p1.intresco.co/fullchain.pem;
-ssl_certificate_key /etc/nginx/ssl/live/p1.intresco.co/privkey.pem;
-include /etc/nginx/ssl/options-ssl-nginx.conf;
-ssl_dhparam /etc/nginx/ssl/ssl-dhparams.pem;
-#
 location / {
 proxy_pass http://odoo1;
 # force timeouts if the backend dies
@@ -174,25 +168,14 @@ expires 864000;
 proxy_pass http://odoo1;
 }
 }
-server {
-    if ($host = www.p1.intresco.co) {
-        return 301 https://$host$request_uri;
-    }
-    if ($host = p1.intresco.co) {
-        return 301 https://$host$request_uri;
-    }
-server_name p1.intresco.co www.p1.intresco.co;
-    listen 80;
-    listen [::]:80;
-    return 404;
-}
+
 ############aplicacion_2#######################################
 upstream odoo2 {
        server odoo2:8069;
 }
 server {
-listen [::]:443 ssl;
-listen 443 ssl;
+listen [::]:80;
+listen 80;
 server_name p2.intresco.co www.p2.intresco.co;
 location ^~ /.well-known/acme-challenge {
              root /var/www/html/;
@@ -204,11 +187,6 @@ proxy_buffer_size 128k;
 # Specifies the maximum accepted body size of a client request,
 # as indicated by the request header Content-Length.
 client_max_body_size 200m;
-#ssl
-ssl_certificate /etc/nginx/ssl/live/p2.intresco.co/fullchain.pem;
-ssl_certificate_key /etc/nginx/ssl/live/p2.intresco.co/privkey.pem;
-include /etc/nginx/ssl/options-ssl-nginx.conf;
-ssl_dhparam /etc/nginx/ssl/ssl-dhparams.pem;
 #
 location / {
 proxy_pass http://odoo2;
@@ -230,26 +208,14 @@ proxy_buffering on;
 expires 864000;
 proxy_pass http://odoo2;
 }
-}
-server {
-    if ($host = www.p2.intresco.co) {
-        return 301 https://$host$request_uri;
-    }
-    if ($host = p2.intresco.co) {
-        return 301 https://$host$request_uri;
-    }
-server_name p2.intresco.co www.p2.intresco.co;
-    listen 80;
-    listen [::]:80;
-    return 404;
 }
 ############aplicacion_3#######################################
 upstream odoo3 {
        server odoo3:8069;
 }
 server {
-listen [::]:443 ssl;
-listen 443 ssl;
+listen [::]:80;
+listen 80;
 server_name p3.intresco.co www.p3.intresco.co;
 location ^~ /.well-known/acme-challenge {
              root /var/www/html/;
@@ -261,11 +227,7 @@ proxy_buffer_size 128k;
 # Specifies the maximum accepted body size of a client request,
 # as indicated by the request header Content-Length.
 client_max_body_size 200m;
-#ssl
-ssl_certificate /etc/nginx/ssl/live/p3.intresco.co/fullchain.pem;
-ssl_certificate_key /etc/nginx/ssl/live/p3.intresco.co/privkey.pem;
-include /etc/nginx/ssl/options-ssl-nginx.conf;
-ssl_dhparam /etc/nginx/ssl/ssl-dhparams.pem;
+
 #
 location / {
 proxy_pass http://odoo3;
@@ -288,25 +250,14 @@ expires 864000;
 proxy_pass http://odoo3;
 }
 }
-server {
-    if ($host = www.p3.intresco.co) {
-        return 301 https://$host$request_uri;
-    }
-    if ($host = p3.intresco.co) {
-        return 301 https://$host$request_uri;
-    }
-server_name p3.intresco.co www.p3.intresco.co;
-    listen 80;
-    listen [::]:80;
-    return 404;
-}
+
 ############aplicacion_4#######################################
 upstream odoo4 {
        server odoo4:8069;
 }
 server {
-listen [::]:443 ssl;
-listen 443 ssl;
+listen [::]:80;
+listen 80;
 server_name p4.intresco.co www.p4.intresco.co;
 location ^~ /.well-known/acme-challenge {
              root /var/www/html/;
@@ -318,11 +269,6 @@ proxy_buffer_size 128k;
 # Specifies the maximum accepted body size of a client request,
 # as indicated by the request header Content-Length.
 client_max_body_size 200m;
-#ssl
-ssl_certificate /etc/nginx/ssl/live/p4.intresco.co/fullchain.pem;
-ssl_certificate_key /etc/nginx/ssl/live/p4.intresco.co/privkey.pem;
-include /etc/nginx/ssl/options-ssl-nginx.conf;
-ssl_dhparam /etc/nginx/ssl/ssl-dhparams.pem;
 #
 location / {
 proxy_pass http://odoo3;
@@ -344,26 +290,14 @@ proxy_buffering on;
 expires 864000;
 proxy_pass http://odoo3;
 }
-}
-server {
-    if ($host = www.p4.intresco.co) {
-        return 301 https://$host$request_uri;
-    }
-    if ($host = p4.intresco.co) {
-        return 301 https://$host$request_uri;
-    }
-server_name p4.intresco.co www.p4.intresco.co;
-    listen 80;
-    listen [::]:80;
-    return 404;
 }
 ############aplicacion_5#######################################
 upstream odoo5 {
        server odoo5:8069;
 }
 server {
-listen [::]:443 ssl;
-listen 443 ssl;
+listen [::]:80;
+listen 80;
 server_name p5.intresco.co www.p5.intresco.co;
 location ^~ /.well-known/acme-challenge {
              root /var/www/html/;
@@ -375,11 +309,6 @@ proxy_buffer_size 128k;
 # Specifies the maximum accepted body size of a client request,
 # as indicated by the request header Content-Length.
 client_max_body_size 200m;
-#ssl
-ssl_certificate /etc/nginx/ssl/live/p5.intresco.co/fullchain.pem;
-ssl_certificate_key /etc/nginx/ssl/live/p5.intresco.co/privkey.pem;
-include /etc/nginx/ssl/options-ssl-nginx.conf;
-ssl_dhparam /etc/nginx/ssl/ssl-dhparams.pem;
 #
 location / {
 proxy_pass http://odoo3;
@@ -401,18 +330,6 @@ proxy_buffering on;
 expires 864000;
 proxy_pass http://odoo3;
 }
-}
-server {
-    if ($host = www.p5.intresco.co) {
-        return 301 https://$host$request_uri;
-    }
-    if ($host = p5.intresco.co) {
-        return 301 https://$host$request_uri;
-    }
-server_name p5.intresco.co www.p5.intresco.co;
-    listen 80;
-    listen [::]:80;
-    return 404;
 }
 EOF
 cd /opt/odoo
