@@ -460,7 +460,7 @@ services:
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
       - PGDATA=/var/lib/postgresql/data/pgdata
- odoo3:
+  odoo3:
     container_name: odoo3
     image: odoo:12
     depends_on:
@@ -479,7 +479,7 @@ services:
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
       - PGDATA=/var/lib/postgresql/data/pgdata
-odoo4:
+  odoo4:
     container_name: odoo4
     image: odoo:13
     depends_on:
@@ -498,7 +498,7 @@ odoo4:
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
       - PGDATA=/var/lib/postgresql/data/pgdata
-odoo5:
+  odoo5:
     container_name: odoo5
     image: odoo:13
     depends_on:
@@ -528,7 +528,7 @@ odoo5:
       - ./nginx/conf:/etc/nginx/conf.d
       - ./certbot/conf:/etc/nginx/ssl
       - ./certbot/data:/var/www/html
-certbot:
+  certbot:
     container_name: certbot
     image: certbot/certbot:latest
     command: certonly --webroot --webroot-path=/var/www/html --email info@intresco.co --agree-tos --no-eff-email -d p1.intresco.co -d www.p1.intresco.co
