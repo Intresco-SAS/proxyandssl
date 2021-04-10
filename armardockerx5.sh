@@ -464,7 +464,7 @@ volumes:
   odoo-web-data5:
   odoo-db-data:
 EOF
-mkdir cerbot
+mkdir certbot
 cd cerbot
 mkdir conf
 mkdir data
@@ -491,4 +491,4 @@ ssbzSibBsu/6iGtCOGEoXJf//////////wIBAg==
 -----END DH PARAMETERS-----
 EOF
 cd /opt/odoo
-chmod 777 -R cerbot
+chmod 600 -R certbot
