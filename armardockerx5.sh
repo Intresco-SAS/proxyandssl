@@ -271,7 +271,7 @@ proxy_buffer_size 128k;
 client_max_body_size 200m;
 #
 location / {
-proxy_pass http://odoo3;
+proxy_pass http://odoo4;
 # force timeouts if the backend dies
 proxy_connect_timeout 75s;
 proxy_read_timeout 600s;
@@ -288,7 +288,7 @@ location ~* /web/static/ {
 proxy_cache_valid 200 60m;
 proxy_buffering on;
 expires 864000;
-proxy_pass http://odoo3;
+proxy_pass http://odoo4;
 }
 }
 ############aplicacion_5#######################################
@@ -311,7 +311,7 @@ proxy_buffer_size 128k;
 client_max_body_size 200m;
 #
 location / {
-proxy_pass http://odoo3;
+proxy_pass http://odoo5;
 # force timeouts if the backend dies
 proxy_connect_timeout 75s;
 proxy_read_timeout 600s;
@@ -328,7 +328,7 @@ location ~* /web/static/ {
 proxy_cache_valid 200 60m;
 proxy_buffering on;
 expires 864000;
-proxy_pass http://odoo3;
+proxy_pass http://odoo5;
 }
 }
 EOF
