@@ -18,7 +18,7 @@ server {
         error_log /var/log/nginx/testing-error.log;
         proxy_buffers 16 64k;
         proxy_buffer_size 128k;
-        client_max_body_size 4M;
+        #client_max_body_size 4M;
         gzip on;
         gzip_min_length 1000;
         gzip_disable "msie6";
