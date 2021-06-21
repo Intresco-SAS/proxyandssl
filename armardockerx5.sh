@@ -465,7 +465,7 @@ volumes:
   odoo-db-data:
 EOF
 mkdir certbot
-cd cerbot
+cd certbot
 mkdir conf
 mkdir data
 cd conf
