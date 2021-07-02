@@ -1,5 +1,5 @@
-dom="grillman.intresco.co"
-oIP="18.117.91.246"
+dom="sensationsvibrant.com"
+oIP="18.217.184.222"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
