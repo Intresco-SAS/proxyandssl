@@ -1,5 +1,5 @@
-dom="telemetrik.intresco.co"
-oIP="3.143.143.224"
+dom="lacolinera.intresco.co"
+oIP="34.204.204.93"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
@@ -105,10 +105,8 @@ ufw enable
 service odoo restart
 systemctl restart nginx
 apt-get update
-python3 -m pip install "urllib3<1.26"
-python3 -m pip install "chardet<3.0"
 apt-get install software-properties-common
 add-apt-repository universe
 add-apt-repository ppa:certbot/certbot
-apt-get install certbot
+sudo apt install certbot python3-certbot-nginx
 certbot --nginx -d $dom -d www.$dom
