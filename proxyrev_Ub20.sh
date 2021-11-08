@@ -1,5 +1,5 @@
-dom="app.hotelparaisosol.com"
-oIP="3.144.39.91"
+dom="pruebas14.intresco.co"
+oIP="3.131.157.188"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
