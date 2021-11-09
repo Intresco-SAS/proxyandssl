@@ -1,5 +1,5 @@
-dom="mdi.intresco.co"
-oIP="18.217.234.236"
+dom="kuantik.com.co"
+oIP="3.87.80.196"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
