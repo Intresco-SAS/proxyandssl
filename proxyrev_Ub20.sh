@@ -1,5 +1,5 @@
-dom="kuantik.com.co"
-oIP="3.87.80.196"
+dom="mundoconstructivo.intresco.co"
+oIP="54.91.233.11"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
