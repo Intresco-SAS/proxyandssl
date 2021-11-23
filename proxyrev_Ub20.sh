@@ -1,5 +1,5 @@
-dom="mundoconstructivo.intresco.co"
-oIP="54.91.233.11"
+dom="energostech.intresco.co"
+oIP="3.134.115.98"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
