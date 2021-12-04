@@ -1,5 +1,5 @@
-dom="grillman.intresco.co"
-oIP="18.218.250.222"
+dom="gedesarrollo.intresco.co"
+oIP="13.59.96.68"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
