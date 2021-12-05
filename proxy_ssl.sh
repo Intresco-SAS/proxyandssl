@@ -1,5 +1,5 @@
-dom="colombianfruitsco.intresco.co"
-oIP="18.219.44.52"
+dom="kapitan.intresco.co"
+oIP="3.144.188.117"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
