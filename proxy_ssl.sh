@@ -1,5 +1,5 @@
-dom="ambarbeautymarket.com"
-oIP="18.118.153.222"
+dom="dryrefor.intresco.co"
+oIP="18.224.199.211"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
