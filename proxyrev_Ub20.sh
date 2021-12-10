@@ -1,5 +1,5 @@
-dom="energostech.intresco.co"
-oIP="3.134.115.98"
+dom="hotelab.intresco.co"
+oIP="34.229.156.24"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
