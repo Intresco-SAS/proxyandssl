@@ -90,6 +90,7 @@ sed -i '12i\
                    }\
                 }' nginx.conf
 cd /etc/odoo
+sed 's/proxy_mode = false/#proxy_mode = false/' odoo.conf
 echo "proxy_mode = True" >> odoo.conf
 echo "xmlrpc_interface = 127.0.0.1" >> odoo.conf
 echo "netrpc_interface = 127.0.0.1" >> odoo.conf
