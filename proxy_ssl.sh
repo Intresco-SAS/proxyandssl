@@ -1,5 +1,5 @@
-dom="distribucionesupernova.com"
-oIP="3.144.124.209"
+dom="demo.intresco.co"
+oIP="3.145.117.103"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
