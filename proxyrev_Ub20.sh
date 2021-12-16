@@ -1,5 +1,5 @@
-dom="demo.intresco.co"
-oIP="3.145.26.171"
+dom="pruebas14.intresco.co"
+oIP="3.17.109.6"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
@@ -90,7 +90,7 @@ sed -i '12i\
                    }\
                 }' nginx.conf
 cd /etc/odoo
-sed 's/proxy_mode = false/#proxy_mode = false/' odoo.conf
+sed 's/proxy_mode = False/#proxy_mode = False/' odoo.conf
 echo "proxy_mode = True" >> odoo.conf
 echo "xmlrpc_interface = 127.0.0.1" >> odoo.conf
 echo "netrpc_interface = 127.0.0.1" >> odoo.conf
