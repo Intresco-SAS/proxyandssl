@@ -1,5 +1,5 @@
-dom="telemetrik.intresco.co"
-oIP="3.145.136.187"
+dom="demo.intresco.co"
+oIP="13.59.213.113"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
