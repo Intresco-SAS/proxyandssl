@@ -1,5 +1,5 @@
-dom="demo.intresco.co"
-oIP="13.59.213.113"
+dom="hotelrecuerdosdelestadio.intresco.co"
+oIP="44.201.64.236"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
