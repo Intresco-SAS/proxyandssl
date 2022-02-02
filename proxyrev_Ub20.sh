@@ -1,5 +1,5 @@
-dom="hotelrecuerdosdelestadio.intresco.co"
-oIP="44.201.64.236"
+dom="quas.merkurio.com.co"
+oIP="13.59.34.135"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
