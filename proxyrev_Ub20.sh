@@ -1,5 +1,5 @@
-dom="quas.merkurio.com.co"
-oIP="13.59.34.135"
+dom="app.intresco.co"
+oIP="18.190.158.63"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
