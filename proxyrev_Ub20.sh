@@ -1,5 +1,5 @@
-dom="eapsa.intresco.co"
-oIP="18.217.113.56"
+dom="becool.intresco.co"
+oIP="3.144.161.237"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
