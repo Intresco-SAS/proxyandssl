@@ -1,5 +1,5 @@
-dom="leriel.intresco.co"
-oIP="18.219.150.105"
+dom="alimentospremium.intresco.co"
+oIP="54.174.18.137"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
