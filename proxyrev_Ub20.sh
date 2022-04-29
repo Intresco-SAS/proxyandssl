@@ -1,5 +1,5 @@
-dom="mercadoyolombo.intresco.co"
-oIP="3.135.239.124"
+dom="app.solfruits.co"
+oIP="34.227.171.243"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
