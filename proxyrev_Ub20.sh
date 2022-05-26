@@ -1,5 +1,5 @@
-dom="drbernal.intresco.co"
-oIP="54.241.65.52"
+dom="cognitiva.intresco.co"
+oIP="52.53.207.113"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
