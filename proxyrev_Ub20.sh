@@ -1,5 +1,5 @@
-dom="cognitiva.intresco.co"
-oIP="52.53.207.113"
+dom="pci.intresco.co"
+oIP="3.84.14.226"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
