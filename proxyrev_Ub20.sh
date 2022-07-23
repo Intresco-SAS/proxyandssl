@@ -1,5 +1,5 @@
-dom="elporvenir.intresco.co"
-oIP="54.151.117.99"
+dom="quas14.intresco.co"
+oIP="18.207.214.139"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
