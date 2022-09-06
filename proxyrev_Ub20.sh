@@ -1,5 +1,5 @@
-dom="romanina.intresco.co"
-oIP="54.211.96.110"
+dom="bystransportes.intresco.co"
+oIP="52.87.184.121"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
