@@ -1,5 +1,5 @@
-dom="bystransportes.intresco.co"
-oIP="52.87.184.121"
+dom="coolactame.intresco.co"
+oIP="44.204.66.154"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
