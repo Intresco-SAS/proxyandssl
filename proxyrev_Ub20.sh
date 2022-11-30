@@ -1,5 +1,5 @@
-dom="globalasti.intresco.co"
-oIP="34.233.128.246"
+dom="lunac.intresco.co"
+oIP="54.183.207.253"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
