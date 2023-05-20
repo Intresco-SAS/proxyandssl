@@ -70,9 +70,7 @@ sed -i '31i\
 	proxy_set_header X-Forwarded-Proto $scheme;' $dom
 ln -s /etc/nginx/sites-available/$dom /etc/nginx/sites-enabled/$dom
 cd /etc/odoo
-sed 's/
-    proxy_mode = False/
-    #proxy_mode = False/' odoo.conf
+find /etc/odoo/ -name "*.conf" -print | xargs sed -i "s/proxy_mode = False/#proxy_mode = False/"
 echo "proxy_mode = True" >> odoo.conf
 echo "xmlrpc_interface = 127.0.0.1" >> odoo.conf
 echo "netrpc_interface = 127.0.0.1" >> odoo.conf
