@@ -1,5 +1,5 @@
-dom="coinsi.intresco.co"
-oIP="137.184.65.82"
+dom="romanina.intresco.co"
+oIP="3.82.222.217"
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
