@@ -1,6 +1,6 @@
-dom="chila.intresco.co"
+dom="test.intresco.co"
 oIP="146.190.73.24"
-ndb="INTRESCO"
+ndb="TEST"
 
 apt update
 apt-get install nginx -y
