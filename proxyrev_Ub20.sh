@@ -59,9 +59,6 @@ server {
 }
 EOF
 cd /etc/nginx/sites-available
-sed -i '24i\
-	return 301 https://chila.intresco.co$request_uri;' $dom
-cd /etc/nginx/sites-available
 sed -i '31i\
 	proxy_set_header Host $host;
 	proxy_set_header X-Forwarded-Host $host;
