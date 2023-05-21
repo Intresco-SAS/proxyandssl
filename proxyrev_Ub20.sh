@@ -6,7 +6,7 @@ apt update
 apt-get install nginx -y
 cd
 git clone https://github.com/agavariat/dominio.git
-mv dominio/dominio /etc/nginx/sites-available/$dom
+cp dominio/dominio /etc/nginx/sites-available/$dom
 cd /etc/nginx/sites-available
 cat <<EOF > $dom
 upstream odoosrv$ndb {
@@ -46,7 +46,6 @@ server {
 	error_log /var/log/nginx/odoo-error.log;
     # enable gzip
 	gzip_types text/css text/less text/plain text/xml application/xml application/json application/javascript;
-	gzip on;
     # proxy requests to the appropriate upstream
 	location / {
 		proxy_redirect off;
@@ -59,7 +58,7 @@ server {
 }
 EOF
 cd /etc/nginx/sites-available
-sed -i '31i\
+sed -i '25i\
 	proxy_set_header Host $host;\
 	proxy_set_header X-Forwarded-Host $host;\
 	proxy_set_header X-Real-IP $remote_addr;\
